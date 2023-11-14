@@ -11,12 +11,11 @@ type ConnectionInfo struct {
 	Username string
 	DBName   string
 	SSLMode  string
-	Password string
 }
 
 func NewPostgresConnection(info ConnectionInfo) (*sql.DB, error) {
-	db, err := sql.Open("postgres", fmt.Sprintf("host=%s port=%d user=%s dbname=%s sslmode=%s password=%s",
-		info.Host, info.Port, info.Username, info.DBName, info.SSLMode, info.Password))
+	db, err := sql.Open("postgres", fmt.Sprintf("host=%s port=%d user=%s dbname=%s sslmode=%s",
+		info.Host, info.Port, info.Username, info.DBName, info.SSLMode))
 	if err != nil {
 		return nil, err
 	}
