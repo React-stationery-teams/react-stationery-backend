@@ -12,7 +12,7 @@ CREATE TABLE Product (
     price NUMERIC(10, 2) NOT NULL,
     category_id INTEGER REFERENCES Category(id),
     weight FLOAT, 
-    mainPhoto TEXT,
+    mainPhoto TEXT
 );
 
 -- Photos Table
