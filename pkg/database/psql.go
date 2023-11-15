@@ -6,16 +6,14 @@ import (
 )
 
 type ConnectionInfo struct {
-	Host     string
-	Port     int
 	Username string
 	DBName   string
 	SSLMode  string
 }
 
 func NewPostgresConnection(info ConnectionInfo) (*sql.DB, error) {
-	db, err := sql.Open("postgres", fmt.Sprintf("host=%s port=%d user=%s dbname=%s sslmode=%s",
-		info.Host, info.Port, info.Username, info.DBName, info.SSLMode))
+	db, err := sql.Open("postgres", fmt.Sprintf("user=%s dbname=%s sslmode=%s",
+		info.Username, info.DBName, info.SSLMode))
 	if err != nil {
 		return nil, err
 	}
